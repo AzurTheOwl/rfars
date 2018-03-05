@@ -1,0 +1,72 @@
+---
+title: "Main functionality"
+author: "Dmitriy Demenkov"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+In this vignette you can find basic information about package`s functions usage.
+
+## Load library
+
+To use package you need to load it:
+
+```{r library}
+library(rfars)
+```
+
+## fars_read example
+
+One of basic function in package, it simply read the specified FARS data file.
+
+```{r fars_read}
+library(rfars)
+fars_read("accident_2015.csv.bz2")
+```
+
+## make_filename example
+
+This function will create correct filename for FARS data file based on year.
+
+```{r make_filename}
+make_filename(2015)
+```
+
+## fars_read_years example
+
+THis function can read several FARS data files by one use.
+
+```{r fars_read_years}
+fars_read_years(2013:2015)
+fars_read_years(c("2013", "2015"))
+```
+
+## fars_summarize_years example
+
+YOu can use this function in case you want to have short FARS summary for specified years.
+
+```{r fars_summarize_years}
+fars_summarize_years(2014:2015)
+```
+
+## fars_map_state example
+
+THis function will plot FARS data for specified year and state.
+
+```{r fars_map_state}
+fars_map_state(state.num = 34, 2015)
+```
+
+
+
